@@ -38,3 +38,26 @@
 .prose-chat h1 { @apply text-base; }
 .prose-chat h2 { @apply text-sm; }
 .prose-chat h3 { @apply text-sm; }
+
+/* 备案页脚：仅在页脚存在时生效，让主内容自适应页脚高度，避免页脚遮挡聊天区域 */
+body:has(> footer[data-site-footer]) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+body:has(> footer[data-site-footer]) > main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body:has(> footer[data-site-footer]) > main > .h-screen {
+  flex: 1 1 0%;
+  height: auto;
+  min-height: 0;
+}
